@@ -44,6 +44,7 @@ body{
     margin-left: 20%;
     margin-top: 10px;
     color: #000000;
+    cursor: pointer;
 }
 #boton-iniciar:active{
     background-color: #00A2FF;
@@ -69,4 +70,41 @@ a:hover{
 
 .links-style{
   margin-left: 10px;
+}
+
+#logotype{
+    width: 600px;
+    min-width: 400px;
+    height: 200px;
+    margin:10px;
+}
+
+#notify{
+    width: 600px;
+    min-width: 400px;
+    height: 200px;
+    margin: 10px;
+}
+
+#notify-msg{
+    text-align: center;
+    margin-left: 19%;
+    margin-top: 10px;
+    width: 300px;
+    height: 25px;
+    color: white;
+    
+}
+
+.error-input{
+    border-color: red;
+}
+
+#logotype-msg{
+    text-align: center;
+    margin-left: 19%;
+    margin-top: 10px;
+    width: 300px;
+    height: 200px;
+    color: white;
 }

@@ -6,24 +6,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
     <link rel="stylesheet" href="css/index.css">
+    
 </head>
 <body>
     <div id="container">
         <div id="container-2">
-            <div>
-                <input placeholder="Usuario" type="text" class="input-data" val="">
+            <div id="logotype">
+                <div id="logotype-msg">
+
+                </div>
             </div>
             <div>
-                <input placeholder="Contraseña" class="input-data" type="password" val="">
+                <input id="user_name" placeholder="Usuario" type="text" class="input-data">
+            </div>
+            <div>
+                <input id="user_password" placeholder="Contraseña" class="input-data" type="password">
             </div>
             <div>
                 <button id="boton-iniciar">Iniciar sesión</button>
             </div>
             <div id="cont-links">
-                <a class="links-style" href="">¿Olvidó su contraseña?</a>
-                <a class="links-style" href="">Registrarse</a>
+                <a class="links-style" href="html/restablecer-contrasena.html">¿Olvidó su contraseña?</a>
+                <a class="links-style" href="html/nuevo_usuario.html">Registrarse</a>
+            </div>
+            <div id="notify">
+                <div id="notify-msg">
+                    
+                </div>
             </div>
         </div>
     </div>
+    <script src="js/index.js"></script>
 </body>
 </html>
