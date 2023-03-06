@@ -6,9 +6,10 @@ const error_msg = document.getElementById('notify-msg');
 bottona.addEventListener("click",(e)=>{
     if(user_name.value != '' && user_password.value != '' ){ 
         const respuesta = solicitarDatos(user_name.value, user_password.value);
-        respuesta.then((respuesta)=>{
+        respuesta.then((respuesta)=>{  
             window.open("../html/inicio.html");
             window.close();
+            
         })
         .catch((e)=>{
             if(e==1){
@@ -51,7 +52,7 @@ function solicitarDatos(user, password){
         else{
             setTimeout(()=>{
                 reject(false);
-            },2000);
+            },1000);
         }
     });
 }
