@@ -7,8 +7,13 @@ var btn_acept = document.getElementById("btn-acept");
 //Div para mostrar el mensaje de error
 var msg_error = document.getElementById("msg-error");
 
+//expresion regular para validar el mail
+var exprR = /^((\w)+(\.?\w+)*(\-?\w+)*)@{1}\w{4,255}\.{1}\w+(\.{1}\w+)?/g
+
+//campo del mail
+var mail = document.getElementById("mail");
 //input nombre
- var name_u = document.getElementById("name");
+var name_u = document.getElementById("name");
 //input usuario
 var user = document.getElementById("user");
 //input contraseña
@@ -28,28 +33,48 @@ btn_acept.addEventListener("click", (e)=>{
     if(name_u.value != ''){
         //validamos que haya un usuario
         if(user.value != '' && user.value.charAt(0) == '@'){
-            //validamos que el campo de contraseña no este vacio
-            if(password1.value != ''){
-                //validamos que el campo de confirmar contraseña no este vacio
-                if(password2.value != ''){
-                    if(password1.value == password2.value){
-                        msg_error.innerHTML = "Su registro ha sido exitoso.";
+            if(mail.value != '' && exprR.test(mail.value)){
+                 //validamos que el campo de contraseña no este vacio
+                if(password1.value != ''){
+                    //validamos que el campo de confirmar contraseña no este vacio
+                    if(password2.value != ''){
+                        //validando que las dos contraseñas sean igual
+                        if(password1.value == password2.value){ 
+                            datos = {
+                                nombre : name_u.value,
+                                usuario : user.value,
+                                correo : mail.value,
+                                contra : password1.value
+                            }
+                            msg_error.innerHTML = `Su registro ha sido exitoso. ${user.value}`;
+                            mail.value = '';
+                            name_u.value = '';
+                            user.value = '';
+                            password1.value = '';
+                            password2.value = '';
+                        }
+                        else{
+                            msg_error.innerHTML = "Las contraseñas no coinciden.";
+                            password2.classList.add("error-input");
+                            password1.classList.add("error-input");
+                        }
                     }
                     else{
-                        msg_error.innerHTML = "Las contraseñas no coinciden.";
+                        msg_error.innerHTML = "Ingrese la contraseña nuevamente.";
                         password2.classList.add("error-input");
-                        password1.classList.add("error-input");
                     }
                 }
                 else{
-                    msg_error.innerHTML = "Ingrese la contraseña nuevamente.";
-                    password2.classList.add("error-input");
+                    msg_error.innerHTML = "Ingrese una contraseña.";
+                    password1.classList.add("error-input");
                 }
             }
             else{
-                msg_error.innerHTML = "Ingrese una contraseña.";
-                password1.classList.add("error-input");
+                //si el correo no es valido
+                msg_error.innerHTML = "Ingrese un correo electronico valido.";
+                mail.classList.add("error-input");
             }
+           
         }
         else{
             //si no ha ingresado un @usuario le mostramos el error
